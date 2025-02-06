@@ -1,0 +1,32 @@
+:root {
+  /* Light theme */
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Primary colors */
+  --primary-light: #64FFDA;  /* Mint */
+  --primary-dark: #0EA5E9;   /* Ocean Blue */
+
+  /* Accent colors */
+  --accent-light: #48BFE3;   /* Light Blue */
+  --accent-dark: #0284C7;    /* Deep Ocean */
+
+  /* Gradient colors */
+  --gradient-start: #64FFDA;  /* Mint */
+  --gradient-end: #48BFE3;    /* Ocean Blue */
+
+  /* Surface colors */
+  --surface-light: #F0FDFA;   /* Mint White */
+  --surface-dark: #0F172A;    /* Navy */
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0f172a; /* Slate 900 */
+		--foreground: #f1f5f9; /* Slate 100 */
+
+		/* Adjust surface colors for dark mode */
+		--surface-light: #1e293b; /* Slate 800 */
+		--surface-dark: #0f172a; /* Slate 900 */
+	}
+}

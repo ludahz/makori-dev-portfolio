@@ -3,19 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
+	--primary-light: 74, 222, 128; /* RGB values */
+	--primary-dark: 22, 163, 74;
+	--accent-light: 34, 211, 238;
+	--accent-dark: 8, 145, 178;
+	--gradient-start: #4ade80;
+	--gradient-end: #22d3ee;
+	--surface-light: #ecfdf5;
+	--surface-dark: #0f1a1a;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: var(--surface-dark);
+		--foreground: #f1f5f9;
+	}
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	color: var(--foreground);
+	background: var(--background);
+	font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
+}
+
+/* Custom gradient text */
+.gradient-text {
+	@apply bg-clip-text text-transparent;
+	background-image: linear-gradient(
+		135deg,
+		var(--gradient-start),
+		var(--gradient-end)
+	);
+}
+
+/* Custom gradient background */
+.gradient-bg {
+	background-image: linear-gradient(
+		135deg,
+		var(--gradient-start),
+		var(--gradient-end)
+	);
+}
+
+/* Social link styles as a component class */
+@layer components {
+	.social-link {
+		@apply p-3 rounded-full bg-white/90 dark:bg-gray-800/90 text-gray-600 dark:text-gray-300
+           shadow-md hover:shadow-lg hover:scale-110 transform transition-all duration-300;
+	}
+
+	.social-link:hover {
+		color: rgb(var(--primary-light));
+		box-shadow: 0 0 20px rgba(var(--primary-light), 0.5);
+	}
 }
