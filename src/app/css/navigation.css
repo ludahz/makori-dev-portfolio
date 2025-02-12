@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Navigation link styles as a component class */
+@layer components {
+	.nav-link {
+		@apply flex items-center px-3 py-2 rounded-md text-sm font-medium 
+			bg-[var(--surface-light)] dark:bg-[var(--surface-dark)]
+			text-[rgb(var(--primary-dark))] dark:text-[rgb(var(--primary-light))]
+			dark:bg-opacity-90 
+			dark:backdrop-brightness-50	
+			backdrop-blur-sm 
+			border border-transparent
+			shadow-sm 
+			transition-all duration-300;
+	}
+
+	/* .nav-link {
+		@apply flex items-center px-3 py-2 rounded-lg text-sm font-medium 
+		  bg-[var(--surface-light)] dark:bg-[var(--surface-dark)]
+		  text-[rgb(var(--primary-dark))] dark:text-[rgb(var(--primary-light))]
+		  border border-transparent
+		  backdrop-blur-sm 
+		  shadow-sm 
+		  transition-all duration-300;
+	  } */
+
+	/* .nav-link-active {
+		@apply text-[rgb(var(--primary-light))] 
+			bg-[rgb(var(--primary-light)/0.1)] 
+			hover:bg-[rgb(var(--primary-light)/0.2)]
+			border-[rgba(var(--primary-light),0.3)];
+	} */
+
+	.nav-link-active {
+		@apply bg-[rgb(var(--primary-light))/10]
+		  dark:bg-[rgb(var(--primary-light))/10]
+		  text-[rgb(var(--primary-light))]
+		  dark:text-[rgb(var(--primary-light))]
+		  border-[rgb(var(--primary-light))/30]
+		  dark:border-[rgb(var(--primary-light))/30];
+		box-shadow: 0 0 15px rgba(var(--primary-light), 0.15);
+	}
+
+	.nav-link:hover {
+		color: rgb(var(--primary-light));
+		border-color: rgba(var(--primary-light), 0.5);
+		box-shadow: 0 0 10px rgba(var(--primary-light), 0.2),
+			0 4px 6px -1px rgba(var(--primary-light), 0.1);
+	}
+}

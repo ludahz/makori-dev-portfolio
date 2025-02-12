@@ -5,7 +5,7 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
-	--primary-light: 74, 222, 128; /* RGB values */
+	--primary-light: 74, 222, 128;
 	--primary-dark: 22, 163, 74;
 	--accent-light: 34, 211, 238;
 	--accent-dark: 8, 145, 178;
@@ -13,19 +13,47 @@
 	--gradient-end: #22d3ee;
 	--surface-light: #ecfdf5;
 	--surface-dark: #0f1a1a;
+	--section-light: #f0fdfa;
+	--section-light-alt: #f7fdfb;
+	--section-dark: #0b1221;
+	--section-dark-alt: #0f1729;
+
+	--badge-bg-light: rgba(74, 222, 128, 0.1);
+	--badge-bg-dark: rgba(22, 163, 74, 0.1);
+	--badge-text-light: rgb(74, 222, 128);
+	--badge-text-dark: rgb(22, 163, 74);
+	--badge-border-light: rgba(74, 222, 128, 0.2);
+	--badge-border-dark: rgba(22, 163, 74, 0.2);
+
+	--highlight-text-light: #171717; /* Dark color for light mode */
+	--highlight-text-dark: #ecfdf5; /* Light color for dark mode */
+
+	/* Default to light mode */
+	--highlight-text: var(--highlight-text-light);
+
+	--highlight-text-secondary: #4a5568;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: var(--surface-dark);
-		--foreground: #f1f5f9;
-	}
+html {
+	transition: color-scheme 0.5s ease;
+}
+
+html.dark {
+	color-scheme: dark;
+	--background: var(--surface-dark);
+	--foreground: #f1f5f9;
+	--section-light: var(--section-dark);
+	--section-light-alt: var(--section-dark-alt);
+	/* Switch to dark mode highlight */
+	--highlight-text: var(--highlight-text-dark);
+	--highlight-text-secondary: #e2e8f0;
 }
 
 body {
 	color: var(--foreground);
 	background: var(--background);
 	font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
+	transition: color 0.5s ease-in-out, background-color 0.5s ease;
 }
 
 /* Custom gradient text */
@@ -47,15 +75,31 @@ body {
 	);
 }
 
-/* Social link styles as a component class */
-@layer components {
-	.social-link {
-		@apply p-3 rounded-full bg-white/90 dark:bg-gray-800/90 text-gray-600 dark:text-gray-300
-           shadow-md hover:shadow-lg hover:scale-110 transform transition-all duration-300;
-	}
+/*Custom text*/
+.highlight-text {
+	color: var(--highlight-text);
+	transition: color 0.2s ease;
+	opacity: 0.9;
+}
 
-	.social-link:hover {
-		color: rgb(var(--primary-light));
-		box-shadow: 0 0 20px rgba(var(--primary-light), 0.5);
-	}
+.highlight-text-75 {
+	color: var(--highlight-text);
+	opacity: 0.75;
+}
+
+.highlight-text-50 {
+	color: var(--highlight-text);
+	opacity: 0.5;
+}
+
+.highlight-text-25 {
+	color: var(--highlight-text);
+	opacity: 0.25;
+}
+
+/* Add secondary highlight text class */
+.highlight-text-secondary {
+	color: var(--highlight-text-secondary);
+	transition: color 0.2s ease;
+	opacity: 0.6;
 }

@@ -2,32 +2,39 @@
 
 import { ThemeColors, themes } from '@/constants/theme'
 import { createContext, useContext, useEffect, useState } from 'react'
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 interface ThemeContextType {
 	currentTheme: ThemeColors
 	setTheme: (theme: ThemeColors) => void
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
+// ThemeContext.tsx
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
 	const [currentTheme, setCurrentTheme] = useState<ThemeColors>(themes[0])
 
 	const setTheme = (theme: ThemeColors) => {
 		const root = document.documentElement
+		const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-		// Set CSS variables
+		// Set background color based on theme and dark mode
+		root.style.setProperty(
+			'--background',
+			isDarkMode ? theme.colors.surfaceDark : theme.colors.background
+		)
+
+		// Set other CSS variables
 		Object.entries(theme.colors).forEach(([key, value]) => {
 			const cssKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-			root.style.setProperty(`--${cssKey}`, value)
-		})
 
-		// Specifically handle background in dark mode
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			root.style.setProperty('--background', theme.colors.surfaceDark)
-		} else {
-			root.style.setProperty('--background', theme.colors.background)
-		}
+			if (typeof value === 'object' && value !== null) {
+				Object.entries(value).forEach(([variant, variantValue]) => {
+					root.style.setProperty(`--${cssKey}-${variant}`, String(variantValue))
+				})
+			} else {
+				root.style.setProperty(`--${cssKey}`, String(value))
+			}
+		})
 
 		setCurrentTheme(theme)
 		localStorage.setItem('selected-theme', theme.name)
@@ -36,11 +43,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 	// Listen for dark mode changes
 	useEffect(() => {
 		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-		const handleChange = (e: MediaQueryListEvent) => {
-			const background = e.matches
-				? currentTheme.colors.surfaceDark
-				: currentTheme.colors.background
-			document.documentElement.style.setProperty('--background', background)
+
+		const handleChange = () => {
+			// Re-apply the current theme with updated dark mode status
+			setTheme(currentTheme)
 		}
 
 		darkModeMediaQuery.addEventListener('change', handleChange)
