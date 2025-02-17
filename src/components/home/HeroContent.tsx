@@ -8,7 +8,7 @@ export function HeroContent() {
 	return (
 		<div className='text-center animate-fade-up'>
 			<h1 className='text-6xl sm:text-7xl font-bold highlight-text  mb-8 animate-fade-up delay-500'>
-				Hi, I'm{' '}
+				Hi, I&apos;m{' '}
 				<span className='gradient-text relative inline-block'>
 					Makori
 					<span className='absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-primary dark:bg-gradient-primary-dark rounded-full opacity-70 animate-grow-width delay-2000' />

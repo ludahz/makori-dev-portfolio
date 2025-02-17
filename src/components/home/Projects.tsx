@@ -4,10 +4,8 @@ import { FC, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, X } from 'lucide-react'
 import { SectionTitle } from '@/components/shared/SectionTitle'
-// import { ProjectCard } from '../shared/ProjectCard'
 import { projects } from '@/constants/projects'
 import { Section } from '../Layout/Section'
-import type { Project } from '@/types'
 import { ProjectCard } from '../shared/ProjectCard'
 
 export const Projects: FC = () => {

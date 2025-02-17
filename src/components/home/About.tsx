@@ -4,6 +4,7 @@ import { FC } from 'react'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '../shared/SectionTitle'
 import { Section } from '../Layout/Section'
+import Image from 'next/image'
 
 export const About: FC = () => {
 	return (
@@ -20,22 +21,23 @@ export const About: FC = () => {
 				>
 					<div className='space-y-6 text-gray-300'>
 						<p className='animate-fade-in'>
-							I'm a passionate Full Stack Developer with experience in building
-							modern web applications. My journey in web development started
-							with freelancing, and I've since worked on various projects that
-							have sharpened my skills in both frontend and backend development.
+							I&apos;m a passionate Full Stack Developer with experience in
+							building modern web applications. My journey in web development
+							started with freelancing, and I&apos;ve since worked on various
+							projects that have sharpened my skills in both frontend and
+							backend development.
 						</p>
 						<p className='animate-fade-in delay-100'>
-							Currently, I'm working as a Junior Web Developer at Reollo Travel,
-							where I build and maintain B2B travel booking platforms. I
+							Currently, I&apos;m working as a Junior Web Developer at Reollo
+							Travel, where I build and maintain B2B travel booking platforms. I
 							specialize in creating responsive, user-friendly applications
 							using React, Next.js, and Node.js.
 						</p>
 						<p className='animate-fade-in delay-200'>
-							I'm always eager to learn new technologies and best practices to
-							create better web experiences. When I'm not coding, I enjoy
-							contributing to open-source projects and staying up-to-date with
-							the latest web development trends.
+							I&apos;m always eager to learn new technologies and best practices
+							to create better web experiences. When I&apos;m not coding, I
+							enjoy contributing to open-source projects and staying up-to-date
+							with the latest web development trends.
 						</p>
 					</div>
 					<motion.div
@@ -44,10 +46,17 @@ export const About: FC = () => {
 						className='relative h-96 w-full rounded-lg overflow-hidden'
 					>
 						<div className='absolute inset-0 bg-[var(--card-dark)] opacity-80' />
-						<img
+						{/* <img
 							src='/images/manta-reollo.png'
 							alt='Lawrence Makori'
 							className='object-cover object-center w-full h-full rounded-lg'
+						/> */}
+						<Image
+							src='/images/manta-reollo.png'
+							alt='Lawrence Makori'
+							fill
+							className='object-cover object-center rounded-lg'
+							priority
 						/>
 					</motion.div>
 				</motion.div>

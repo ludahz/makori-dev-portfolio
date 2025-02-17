@@ -1,6 +1,6 @@
 // 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import Image from 'next/image'
@@ -14,20 +14,24 @@ interface ImageModalProps {
 export function ImageModal({ images, isOpen, onClose }: ImageModalProps) {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+	// Memoize navigation functions
+	const nextImage = useCallback(() => {
+		setCurrentImageIndex((prev) => (prev + 1) % images.length)
+	}, [images.length])
+
+	const previousImage = useCallback(() => {
+		setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
+	}, [images.length])
+
 	// Handle scroll lock
 	useEffect(() => {
 		if (isOpen) {
-			// Save current scroll position
 			const scrollY = window.scrollY
-
-			// Add styles to prevent scrolling
 			document.body.style.position = 'fixed'
 			document.body.style.top = `-${scrollY}px`
 			document.body.style.width = '100%'
 
-			// Cleanup function
 			return () => {
-				// Remove styles and restore scroll position
 				document.body.style.position = ''
 				document.body.style.top = ''
 				document.body.style.width = ''
@@ -56,17 +60,9 @@ export function ImageModal({ images, isOpen, onClose }: ImageModalProps) {
 
 		window.addEventListener('keydown', handleKeyDown)
 		return () => window.removeEventListener('keydown', handleKeyDown)
-	}, [isOpen])
+	}, [isOpen, nextImage, previousImage, onClose])
 
 	if (!isOpen) return null
-
-	const nextImage = () => {
-		setCurrentImageIndex((prev) => (prev + 1) % images.length)
-	}
-
-	const previousImage = () => {
-		setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
-	}
 
 	return (
 		<motion.div

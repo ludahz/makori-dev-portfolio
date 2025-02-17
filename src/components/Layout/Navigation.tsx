@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, useState, useEffect } from 'react'
+import { JSX, useState, useEffect, useMemo } from 'react'
 import { User, Code, Briefcase, Mail, Home } from 'lucide-react'
 
 interface NavigationItem {
@@ -16,13 +16,16 @@ interface NavigationProps {
 export function Navigation({ isMobile = false }: NavigationProps): JSX.Element {
 	const [activeSection, setActiveSection] = useState<string>('')
 
-	const navigationItems: NavigationItem[] = [
-		{ title: 'About', href: '#about', icon: <User size={18} /> },
-		{ title: 'Skills', href: '#skills', icon: <Code size={18} /> },
-		{ title: 'Projects', href: '#projects', icon: <Briefcase size={18} /> },
-		{ title: 'Work', href: '#experience', icon: <Home size={18} /> },
-		{ title: 'Contact', href: '#contact', icon: <Mail size={18} /> },
-	]
+	const navigationItems = useMemo<NavigationItem[]>(
+		() => [
+			{ title: 'About', href: '#about', icon: <User size={18} /> },
+			{ title: 'Skills', href: '#skills', icon: <Code size={18} /> },
+			{ title: 'Projects', href: '#projects', icon: <Briefcase size={18} /> },
+			{ title: 'Work', href: '#experience', icon: <Home size={18} /> },
+			{ title: 'Contact', href: '#contact', icon: <Mail size={18} /> },
+		],
+		[]
+	)
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -49,7 +52,7 @@ export function Navigation({ isMobile = false }: NavigationProps): JSX.Element {
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [])
+	}, [navigationItems]) // Add navigationItems to the dependency array
 
 	const scrollToSection = (sectionId: string) => {
 		const section = document.getElementById(sectionId)

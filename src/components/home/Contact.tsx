@@ -20,7 +20,8 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>
 
-function FieldInfo({ field }: { field: FieldApi<any, any, any, any> }) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function FieldInfo({ field }: { field: FieldApi<any, any, undefined, any> }) {
 	return (
 		<>
 			{field.state.meta.isTouched && field.state.meta.errors.length ? (
@@ -37,45 +38,6 @@ function FieldInfo({ field }: { field: FieldApi<any, any, any, any> }) {
 
 const Contact = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
-
-	// const form = useForm({
-	// 	defaultValues: {
-	// 		name: '',
-	// 		email: '',
-	// 		message: '',
-	// 	} as ContactForm,
-	// 	onSubmit: async ({ value }) => {
-	// 		setIsSubmitting(true)
-	// 		try {
-	// 			const result = await emailjs.send(
-	// 				serviceId,
-	// 				templateId,
-	// 				{
-	// 					from_name: value.name,
-	// 					from_email: value.email,
-	// 					user_email: value.email,
-	// 					message: value.message,
-	// 					to_name: value.name,
-	// 				},
-	// 				publicKey
-	// 			)
-
-	// 			if (result.status === 200) {
-	// 				toast.success('Message sent successfully!')
-	// 				form.reset()
-	// 			}
-	// 		} catch (error) {
-	// 			toast.error('Failed to send message. Please try again.')
-	// 			console.error('EmailJS error:', error)
-	// 		} finally {
-	// 			setIsSubmitting(false)
-	// 		}
-	// 	},
-
-	// 	validators: {
-	// 		onChange: contactSchema,
-	// 	},
-	// })
 
 	const form = useForm({
 		defaultValues: {
@@ -124,6 +86,8 @@ const Contact = () => {
 		},
 	})
 
+	console.log('This is is submitting', isSubmitting)
+
 	return (
 		<Section isDark>
 			<Toaster position='bottom-right' />
@@ -154,11 +118,11 @@ const Contact = () => {
 											/>
 										</div>
 										<h3 className='text-xl font-semibold text-gray-900 dark:text-white'>
-											Let's Connect
+											Let&apos;s Connect
 										</h3>
 									</div>
 									<p className='text-gray-600 dark:text-gray-300 ml-12'>
-										I'm always interested in hearing about new projects and
+										I&apos;m always interested in hearing about new projects and
 										opportunities. Feel free to reach out!
 									</p>
 								</div>

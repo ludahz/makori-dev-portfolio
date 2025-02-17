@@ -7,7 +7,6 @@ import { Projects } from '@/components/home/Projects'
 
 import { Skills } from '@/components/home/Skills'
 import { Navbar } from '@/components/Layout/Navbar'
-import Image from 'next/image'
 
 export default function Home() {
 	return (
