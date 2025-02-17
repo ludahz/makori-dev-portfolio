@@ -5,13 +5,14 @@ import { FC } from 'react'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '../shared/SectionTitle'
 import { skills } from '@/constants/skills'
-import { SkillBadge } from '../shared/SkillBadge'
+
 import { Skill } from '@/types'
 import { Section } from '../Layout/Section'
+import SkillBadge from '../shared/SkillBadge'
 
 export const Skills: FC = () => {
 	return (
-		<Section isDark className='py-20 relative'>
+		<Section id='skills' isDark className='py-20 relative'>
 			{/* Gradient overlay */}
 			<div className='absolute inset-0 bg-gradient-to-br from-[rgb(var(--primary-light))/5] to-transparent' />
 

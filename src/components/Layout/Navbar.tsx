@@ -1,20 +1,34 @@
 'use client'
 
-import { JSX, useState } from 'react'
-import { motion } from 'framer-motion'
+import { JSX, useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { Navigation } from './Navigation'
 
 export function Navbar(): JSX.Element {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+	const [scrolled, setScrolled] = useState<boolean>(false)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const isScrolled = window.scrollY > 20
+			setScrolled(isScrolled)
+		}
+
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [])
 
 	return (
 		<nav
-			className='fixed top-0 left-0 right-0 
-      bg-[var(--section-light)] dark:bg-[var(--section-dark)] 
-      border-b border-[rgb(var(--primary-light))/10 dark:border-[rgb(var(--primary-dark))/10]
-      backdrop-blur-sm
-      z-50'
+			className={`fixed top-0 left-0 right-0 
+        transition-all duration-300
+        border-b backdrop-blur-sm z-50
+        ${
+					scrolled
+						? 'bg-[var(--section-light-alt)] dark:bg-[var(--section-dark-alt)] border-[rgb(var(--primary-light))]/10'
+						: 'bg-transparent border-transparent'
+				}`}
 		>
 			<div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
 				<div className='flex items-center justify-between h-16'>
@@ -54,11 +68,14 @@ export function Navbar(): JSX.Element {
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 							onClick={() => setIsMenuOpen(!isMenuOpen)}
-							className='p-2 rounded-lg
+							className={`p-2 rounded-lg
                 text-[rgb(var(--primary-light))] dark:text-[rgb(var(--primary-light))]
-                hover:bg-[rgb(var(--primary-light))]/10 
-                dark:hover:bg-[rgb(var(--primary-light))]/10
-                transition-colors duration-200'
+                ${
+									scrolled
+										? 'hover:bg-[rgb(var(--primary-light))]/10 dark:hover:bg-[rgb(var(--primary-light))]/10'
+										: 'hover:bg-white/10 dark:hover:bg-white/10'
+								}
+                transition-colors duration-200`}
 							aria-label='Toggle menu'
 						>
 							{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -68,21 +85,26 @@ export function Navbar(): JSX.Element {
 			</div>
 
 			{/* Mobile Navigation */}
-			{isMenuOpen && (
-				<motion.div
-					initial={{ opacity: 0, y: -20 }}
-					animate={{ opacity: 1, y: 0 }}
-					exit={{ opacity: 0, y: -20 }}
-					className='md:hidden absolute top-16 left-0 right-0 
-            bg-[var(--surface-light)] dark:bg-[var(--surface-dark)]
-            border-b border-[rgb(var(--primary-light))]/10 dark:border-[rgb(var(--primary-dark))]/10
-            backdrop-blur-sm'
-				>
-					<div className='px-4 py-2'>
-						<Navigation isMobile />
-					</div>
-				</motion.div>
-			)}
+			<AnimatePresence>
+				{isMenuOpen && (
+					<motion.div
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -20 }}
+						className={`md:hidden absolute top-16 left-0 right-0 
+              border-b backdrop-blur-sm
+              ${
+								scrolled
+									? 'bg-[var(--section-light)] dark:bg-[var(--section-dark)] border-[rgb(var(--primary-light))]/10'
+									: 'bg-[var(--section-light-alt)]/95 dark:bg-[var(--section-dark-alt)]/95 border-[rgb(var(--primary-light))]/5'
+							}`}
+					>
+						<div className='px-4 py-2'>
+							<Navigation isMobile />
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</nav>
 	)
 }

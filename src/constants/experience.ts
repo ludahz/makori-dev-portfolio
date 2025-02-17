@@ -1,19 +1,45 @@
+// src/constants/experience.ts
 import { Experience } from '@/types'
 
-// src/constants/experience.ts
 export const experience: Experience[] = [
 	{
 		company: 'Reollo Travel',
 		position: 'Junior Web Developer',
 		period: '2022 - Present',
-		description:
-			'Developed B2B travel platform with React and Node.js, integrated TourPlan API.',
+		projects: [
+			'Developed and maintained B2B travel platform using React and Node.js',
+			'Integrated TourPlan API for real-time booking and reservation management',
+			'Implemented responsive design and improved mobile user experience',
+			'Optimized API response times by 40% through caching and code refinement',
+		],
+		technologies: [
+			'React',
+			'Node.js',
+			'TypeScript',
+			'REST API',
+			'MongoDB',
+			'Express.js',
+			'SOAP API',
+			'Git',
+		],
 	},
 	{
-		company: 'Freelance',
-		position: 'Web Developer',
+		company: 'Socialight',
+		position: 'Web Developer(Intern)',
 		period: '2020 - 2022',
-		description:
-			'Designed and developed custom websites using React and Next.js frameworks.',
+		projects: [
+			'Assisted with the creation of websites for clients',
+			'Consulted in design adjustments and clients reviews',
+			'Participated in suggesting new solutions to improve existing websites when needed',
+		],
+		technologies: [
+			'React',
+			'Next.js',
+			'Styled Components',
+			'JavaScript',
+			'HTML/CSS',
+			'Responsive Design',
+			'Git',
+		],
 	},
 ]

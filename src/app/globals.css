@@ -2,104 +2,226 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-	--primary-light: 74, 222, 128;
-	--primary-dark: 22, 163, 74;
-	--accent-light: 34, 211, 238;
-	--accent-dark: 8, 145, 178;
-	--gradient-start: #4ade80;
-	--gradient-end: #22d3ee;
-	--surface-light: #ecfdf5;
-	--surface-dark: #0f1a1a;
-	--section-light: #f0fdfa;
-	--section-light-alt: #f7fdfb;
-	--section-dark: #0b1221;
-	--section-dark-alt: #0f1729;
+@layer base {
+	:root {
+		/* Base colors */
+		--background: #ffffff;
+		--foreground: #171717;
 
-	--badge-bg-light: rgba(74, 222, 128, 0.1);
-	--badge-bg-dark: rgba(22, 163, 74, 0.1);
-	--badge-text-light: rgb(74, 222, 128);
-	--badge-text-dark: rgb(22, 163, 74);
-	--badge-border-light: rgba(74, 222, 128, 0.2);
-	--badge-border-dark: rgba(22, 163, 74, 0.2);
+		/* Primary colors - using RGB format for flexibility */
+		--primary-light: 74, 222, 128;
+		--primary-dark: 22, 163, 74;
 
-	--highlight-text-light: #171717; /* Dark color for light mode */
-	--highlight-text-dark: #ecfdf5; /* Light color for dark mode */
+		/* Accent colors */
+		--accent-light: 34, 211, 238;
+		--accent-dark: 8, 145, 178;
 
-	/* Default to light mode */
-	--highlight-text: var(--highlight-text-light);
+		/* Gradient colors */
+		--gradient-start: #4ade80;
+		--gradient-end: #22d3ee;
 
-	--highlight-text-secondary: #4a5568;
+		/* Surface colors */
+		--surface-light: #ecfdf5;
+		--surface-dark: #0f1a1a;
+
+		/* Section colors */
+		--section-light: #f0fdfa;
+		--section-light-alt: #f7fdfb;
+		--section-dark: #0b1221;
+		--section-dark-alt: #0f1729;
+
+		/* Badge System - Updated to be consistent */
+		--badge-bg-light: 74, 222, 128; /* RGB values for opacity control */
+		--badge-bg-dark: 22, 163, 74;
+		--badge-text-light: 74, 222, 128;
+		--badge-text-dark: 22, 163, 74;
+		--badge-border-light: 74, 222, 128;
+		--badge-border-dark: 22, 163, 74;
+
+		/* Text Highlight System */
+		--highlight-text-light: #171717;
+		--highlight-text-dark: #ecfdf5;
+		--highlight-text: var(--highlight-text-light);
+		--highlight-text-secondary: #4a5568;
+
+		/* Navigation System */
+		--nav-bg-light: rgba(240, 253, 250, 0);
+		--nav-bg-dark: rgba(11, 18, 33, 0);
+		--nav-bg-light-scrolled: rgba(240, 253, 250, 0.8);
+		--nav-bg-dark-scrolled: rgba(11, 18, 33, 0.8);
+		--nav-mobile-light: rgba(240, 253, 250, 0.95);
+		--nav-mobile-dark: rgba(11, 18, 33, 0.95);
+
+		/* Default Navigation State */
+		--nav-bg: var(--nav-bg-light);
+		--nav-bg-scrolled: var(--nav-bg-light-scrolled);
+		--nav-mobile: var(--nav-mobile-light);
+	}
 }
 
-html {
-	transition: color-scheme 0.5s ease;
+/* Dark Mode Overrides */
+@layer base {
+	html.dark {
+		color-scheme: dark;
+		--background: var(--surface-dark);
+		--foreground: #f1f5f9;
+		--section-light: var(--section-dark);
+		--section-light-alt: var(--section-dark-alt);
+		--highlight-text: var(--highlight-text-dark);
+		--highlight-text-secondary: #e2e8f0;
+		--nav-bg: var(--nav-bg-dark);
+		--nav-bg-scrolled: var(--nav-bg-dark-scrolled);
+		--nav-mobile: var(--nav-mobile-dark);
+	}
 }
 
-html.dark {
-	color-scheme: dark;
-	--background: var(--surface-dark);
-	--foreground: #f1f5f9;
-	--section-light: var(--section-dark);
-	--section-light-alt: var(--section-dark-alt);
-	/* Switch to dark mode highlight */
-	--highlight-text: var(--highlight-text-dark);
-	--highlight-text-secondary: #e2e8f0;
+/* Base Styles */
+@layer components {
+	html {
+		transition: color-scheme 0.5s ease;
+	}
+
+	body {
+		color: var(--foreground);
+		background: var(--background);
+		font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
+		transition: color 0.5s ease-in-out, background-color 0.5s ease;
+	}
 }
 
-body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
-	transition: color 0.5s ease-in-out, background-color 0.5s ease;
+/* Utility Classes */
+@layer utilities {
+	/* Gradient Utilities */
+	.gradient-text {
+		@apply bg-clip-text text-transparent;
+		background-image: linear-gradient(
+			135deg,
+			var(--gradient-start),
+			var(--gradient-end)
+		);
+	}
+
+	.gradient-bg {
+		background-image: linear-gradient(
+			135deg,
+			var(--gradient-start),
+			var(--gradient-end)
+		);
+	}
+
+	/* Text Highlight Utilities */
+	.highlight-text {
+		color: var(--highlight-text);
+		transition: color 0.2s ease;
+		opacity: 0.9;
+	}
+
+	.highlight-text-75 {
+		color: var(--highlight-text);
+		opacity: 0.75;
+	}
+
+	.highlight-text-50 {
+		color: var(--highlight-text);
+		opacity: 0.5;
+	}
+
+	.highlight-text-25 {
+		color: var(--highlight-text);
+		opacity: 0.25;
+	}
+
+	.highlight-text-secondary {
+		color: var(--highlight-text-secondary);
+		transition: color 0.2s ease;
+		opacity: 0.6;
+	}
+}
+/* relative inline-flex px-2 py-1.5 rounded-lg text-sm font-medium */
+/* Custom Badge Component */
+/* @layer components {
+	.badge {
+		@apply inline-flex items-center rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors duration-200;
+		background-color: rgb(var(--badge-bg-light), 0.1);
+		color: rgb(var(--badge-text-light));
+		border: 1px solid rgb(var(--badge-border-light), 0.9);
+	}
+
+	.dark .badge {
+		background-color: rgb(var(--badge-bg-dark), 0.1);
+		color: rgb(var(--badge-text-dark));
+		border-color: rgb(var(--badge-border-dark), 0.3);
+	}
+} */
+
+/* Custom Navigation Styles */
+@layer components {
+	.nav-container {
+		background: var(--nav-bg);
+		transition: background-color 0.3s ease;
+	}
+
+	.nav-container.scrolled {
+		background: var(--nav-bg-scrolled);
+		backdrop-filter: blur(8px);
+	}
+
+	.mobile-menu {
+		background: var(--nav-mobile);
+		backdrop-filter: blur(8px);
+	}
 }
 
-/* Custom gradient text */
-.gradient-text {
-	@apply bg-clip-text text-transparent;
-	background-image: linear-gradient(
-		135deg,
-		var(--gradient-start),
-		var(--gradient-end)
-	);
-}
+/* Custom Badge Component */
+@layer components {
+	.badge {
+		@apply inline-flex items-center rounded-full px-2.5 py-1 text-sm font-medium 
+			 transition-colors duration-200 border;
 
-/* Custom gradient background */
-.gradient-bg {
-	background-image: linear-gradient(
-		135deg,
-		var(--gradient-start),
-		var(--gradient-end)
-	);
-}
+		/* Light mode */
+		background-color: rgb(var(--badge-bg-light), 0.2);
+		color: rgb(var(--badge-text-light));
+		border-color: rgb(var(--badge-border-light), 0.3);
+	}
 
-/*Custom text*/
-.highlight-text {
-	color: var(--highlight-text);
-	transition: color 0.2s ease;
-	opacity: 0.9;
-}
+	/* Dark mode */
+	.dark .badge {
+		background-color: rgb(var(--badge-bg-dark), 0.15);
+		color: rgb(var(--badge-text-dark));
+		border-color: rgb(var(--badge-border-dark), 0.3);
+	}
 
-.highlight-text-75 {
-	color: var(--highlight-text);
-	opacity: 0.75;
-}
+	/* Hover states */
+	.badge:hover {
+		background-color: rgb(var(--badge-bg-light), 0.3);
+	}
 
-.highlight-text-50 {
-	color: var(--highlight-text);
-	opacity: 0.5;
-}
+	.dark .badge:hover {
+		background-color: rgb(var(--badge-bg-dark), 0.25);
+	}
 
-.highlight-text-25 {
-	color: var(--highlight-text);
-	opacity: 0.25;
-}
+	/* Variants */
+	.badge-solid {
+		background-color: rgb(var(--badge-bg-light));
+		color: rgb(var(--badge-text-light));
+		border-color: transparent;
+	}
 
-/* Add secondary highlight text class */
-.highlight-text-secondary {
-	color: var(--highlight-text-secondary);
-	transition: color 0.2s ease;
-	opacity: 0.6;
+	.dark .badge-solid {
+		background-color: rgb(var(--badge-bg-dark));
+		color: rgb(var(--badge-text-dark));
+		border-color: transparent;
+	}
+
+	.badge-outlined {
+		background-color: transparent;
+		border-color: rgb(var(--badge-border-light));
+		color: rgb(var(--badge-text-light));
+	}
+
+	.dark .badge-outlined {
+		background-color: transparent;
+		border-color: rgb(var(--badge-border-dark));
+		color: rgb(var(--badge-text-dark));
+	}
 }

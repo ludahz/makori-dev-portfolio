@@ -17,10 +17,10 @@ export function Navigation({ isMobile = false }: NavigationProps): JSX.Element {
 	const [activeSection, setActiveSection] = useState<string>('')
 
 	const navigationItems: NavigationItem[] = [
-		{ title: 'Home', href: '#', icon: <Home size={18} /> },
 		{ title: 'About', href: '#about', icon: <User size={18} /> },
 		{ title: 'Skills', href: '#skills', icon: <Code size={18} /> },
 		{ title: 'Projects', href: '#projects', icon: <Briefcase size={18} /> },
+		{ title: 'Work', href: '#experience', icon: <Home size={18} /> },
 		{ title: 'Contact', href: '#contact', icon: <Mail size={18} /> },
 	]
 

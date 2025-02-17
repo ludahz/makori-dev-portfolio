@@ -58,16 +58,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#1E293B',
 			badgeBg: {
-				light: '100, 219, 251', // Bright cyan
-				dark: '14, 165, 233', // Deep blue
+				light: '125, 255, 255', // Cyan
+				dark: '85, 255, 255',
 			},
 			badgeText: {
-				light: '2, 132, 199', // Dark blue text for light mode
-				dark: '226, 246, 255', // Light cyan text for dark mode
+				light: '125, 255, 255', // Brighter cyan
+				dark: '85, 255, 255',
 			},
 			badgeBorder: {
-				light: '72, 191, 227', // Medium cyan border
-				dark: '2, 132, 199', // Dark blue border
+				light: '125, 255, 255', // Matching cyan
+				dark: '85, 255, 255',
 			},
 		},
 		preview: {
@@ -97,16 +97,16 @@ export const themes: ThemeColors[] = [
 
 			// Matrix Theme
 			badgeBg: {
-				light: '74, 222, 128', // Matrix green
-				dark: '22, 163, 74', // Darker matrix green
+				light: '40, 185, 40', // Saturated green (can set opacity low for light bg)
+				dark: '40, 185, 40', // Same green (can set opacity differently for dark mode)
 			},
 			badgeText: {
-				light: '21, 128, 61', // Dark green text for light mode
-				dark: '187, 247, 208', // Light green text for dark mode
+				light: '0, 100, 0', // Dark Matrix green
+				dark: '0, 80, 0', // Darker Matrix green for dark mode
 			},
 			badgeBorder: {
-				light: '34, 197, 94', // Medium green border
-				dark: '22, 163, 74', // Dark green border
+				light: '132, 255, 132', // Medium Matrix green
+				dark: '92, 255, 92', // Slightly darker medium green for dark mode
 			},
 		},
 		preview: {
@@ -134,16 +134,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#2C2524',
 			badgeBg: {
-				light: '244, 63, 94', // Primary red
-				dark: '225, 29, 72', // Darker red
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '159, 18, 57', // Dark red for contrast in light mode
-				dark: '255, 228, 230', // Light pink for contrast in dark mode
+				light: 'rgb(255, 105, 105)', // Brighter red
+				dark: 'rgb(255, 85, 85)',
 			},
 			badgeBorder: {
-				light: '225, 29, 72', // Medium red border
-				dark: '159, 18, 57', // Dark red border
+				light: 'rgba(255, 105, 105, 0.3)',
+				dark: 'rgba(255, 85, 85, 0.3)',
 			},
 		},
 		preview: {
@@ -171,16 +171,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#2D2A5F',
 			badgeBg: {
-				light: '168, 85, 247', // Primary purple
-				dark: '126, 34, 206', // Darker purple
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '88, 28, 135', // Dark purple for contrast in light mode
-				dark: '233, 213, 255', // Light purple for contrast in dark mode
+				light: 'rgb(200, 125, 255)', // Brighter purple
+				dark: 'rgb(180, 105, 255)',
 			},
 			badgeBorder: {
-				light: '147, 51, 234', // Medium purple border
-				dark: '88, 28, 135', // Dark purple border
+				light: 'rgba(200, 125, 255, 0.3)',
+				dark: 'rgba(180, 105, 255, 0.3)',
 			},
 		},
 		preview: {
@@ -208,16 +208,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#2D2D31',
 			badgeBg: {
-				light: '245, 158, 11', // Primary orange
-				dark: '217, 119, 6', // Darker orange
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '180, 83, 9', // Dark orange for contrast in light mode
-				dark: '255, 237, 213', // Light orange for contrast in dark mode
+				light: 'rgb(255, 175, 55)', // Brighter orange
+				dark: 'rgb(255, 155, 35)',
 			},
 			badgeBorder: {
-				light: '234, 88, 12', // Medium orange border
-				dark: '180, 83, 9', // Dark orange border
+				light: 'rgba(255, 175, 55, 0.3)',
+				dark: 'rgba(255, 155, 35, 0.3)',
 			},
 		},
 		preview: {
@@ -245,16 +245,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#1E293B',
 			badgeBg: {
-				light: '16, 185, 129', // Primary green
-				dark: '4, 120, 87', // Darker green
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '6, 95, 70', // Dark green for contrast in light mode
-				dark: '209, 250, 229', // Light green for contrast in dark mode
+				light: 'rgb(45, 255, 175)', // Brighter teal
+				dark: 'rgb(25, 255, 155)',
 			},
 			badgeBorder: {
-				light: '10, 147, 105', // Medium green border
-				dark: '4, 120, 87', // Dark green border
+				light: 'rgba(45, 255, 175, 0.3)',
+				dark: 'rgba(25, 255, 155, 0.3)',
 			},
 		},
 		preview: {
@@ -282,16 +282,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#1E293B',
 			badgeBg: {
-				light: '59, 130, 246', // Primary blue
-				dark: '37, 99, 235', // Darker blue
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '29, 78, 216', // Dark blue for contrast in light mode
-				dark: '219, 234, 254', // Light blue for contrast in dark mode
+				light: 'rgb(85, 155, 255)', // Brighter blue
+				dark: 'rgb(65, 135, 255)',
 			},
 			badgeBorder: {
-				light: '37, 99, 235', // Medium blue border
-				dark: '29, 78, 216', // Dark blue border
+				light: 'rgba(85, 155, 255, 0.3)',
+				dark: 'rgba(65, 135, 255, 0.3)',
 			},
 		},
 		preview: {
@@ -319,16 +319,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#242433', // Suit panel with purple undertone
 			cardDark: '#151520', // Dark suit panel
 			badgeBg: {
-				light: '82, 196, 255', // Vibranium blue
-				dark: '163, 90, 255', // Kinetic purple
+				light: 'rgba(82, 196, 255, 0.1)', // Vibranium blue glow
+				dark: 'rgba(163, 90, 255, 0.1)', // Kinetic purple glow
 			},
 			badgeText: {
-				light: '0, 108, 171', // Dark blue for contrast in light mode
-				dark: '226, 232, 255', // Light blue for contrast in dark mode
+				light: 'rgb(130, 210, 255)', // Bright vibranium blue
+				dark: 'rgb(180, 130, 255)', // Bright kinetic purple
 			},
 			badgeBorder: {
-				light: '0, 144, 227', // Medium vibranium blue border
-				dark: '93, 48, 203', // Dark purple border
+				light: 'rgba(82, 196, 255, 0.3)', // Vibranium blue outline
+				dark: 'rgba(163, 90, 255, 0.3)', // Kinetic purple outline
 			},
 		},
 		preview: {
@@ -356,73 +356,21 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#1E1E1E',
 			badgeBg: {
-				light: '255, 232, 31', // Lightsaber yellow bg
-				dark: '33, 150, 243', // Force blue bg
+				light: '0, 0, 0', // Lightsaber yellow
+				dark: '0, 0, 0',
 			},
 			badgeText: {
-				light: '23, 23, 23', // Dark text for contrast in light mode
-				dark: '241, 241, 241', // Light text for contrast in dark mode
+				light: '255, 235, 85', // Bright yellow
+				dark: '255, 215, 65',
 			},
 			badgeBorder: {
-				light: '204, 185, 25', // Darker yellow border
-				dark: '25, 118, 210', // Darker blue border
+				light: '255, 235, 85', // Yellow border
+				dark: '255, 215, 65',
 			},
 		},
 		preview: {
 			primary: '#FFE81F',
 			secondary: '#2196F3',
-		},
-	},
-	{
-		name: 'Star Wars II',
-		colors: {
-			// Base colors
-			background: '#ffffff',
-			foreground: '#171717',
-
-			// Light side colors (Jedi/Rebellion)
-			primaryLight: '255, 232, 31', // Lightsaber yellow/gold
-			primaryDark: '204, 185, 25', // Deeper gold
-
-			// Dark side colors (Sith/Empire)
-			accentLight: '231, 35, 35', // Sith red
-			accentDark: '176, 26, 26', // Dark sith red
-
-			// Gradient colors
-			gradientStart: '#FFE81F', // Yellow saber
-			gradientEnd: '#E72323', // Red saber
-
-			// Surface colors
-			surfaceLight: '#F5F6FA', // Light imperial gray
-			surfaceDark: '#1A1B1F', // Dark imperial gray
-
-			// Section colors
-			sectionLight: '#F8F9FC', // Light side white
-			sectionLightAlt: '#FBFCFD', // Lighter variation
-			sectionDark: '#13151A', // Empire dark
-			sectionDarkAlt: '#1A1C22', // Lighter empire
-
-			// Card colors
-			cardLight: '#FFFFFF', // Light side white
-			cardDark: '#1E2027', // Dark side gray
-
-			// Badge system
-			badgeBg: {
-				light: '255, 232, 31', // Light side gold
-				dark: '231, 35, 35', // Dark side red
-			},
-			badgeText: {
-				light: '23, 23, 23', // Dark text for gold badges
-				dark: '255, 255, 255', // White text for red badges
-			},
-			badgeBorder: {
-				light: '204, 185, 25', // Darker gold border
-				dark: '176, 26, 26', // Darker red border
-			},
-		},
-		preview: {
-			primary: '#FFE81F', // Classic Star Wars yellow
-			secondary: '#E72323', // Sith red
 		},
 	},
 	{
@@ -445,16 +393,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#262626',
 			badgeBg: {
-				light: '244, 67, 54', // Spider-red
-				dark: '33, 150, 243', // Spider-blue
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '185, 28, 28', // Dark red for contrast in light mode
-				dark: '239, 246, 255', // Light blue for contrast in dark mode
+				light: 'rgb(255, 95, 85)', // Bright red
+				dark: 'rgb(255, 75, 65)',
 			},
 			badgeBorder: {
-				light: '220, 38, 38', // Medium red border
-				dark: '25, 118, 210', // Dark blue border
+				light: 'rgba(255, 95, 85, 0.3)',
+				dark: 'rgba(255, 75, 65, 0.3)',
 			},
 		},
 		preview: {
@@ -482,16 +430,16 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#2E3446',
 			badgeBg: {
-				light: '61, 82, 160', // Steel blue
-				dark: '112, 145, 196', // Lighter steel blue
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '30, 58, 138', // Dark blue for contrast in light mode
-				dark: '226, 232, 240', // Light gray for contrast in dark mode
+				light: 'rgb(134, 151, 196)',
+				dark: 'rgb(112, 145, 196)',
 			},
 			badgeBorder: {
-				light: '48, 66, 145', // Medium steel blue border
-				dark: '71, 85, 105', // Dark steel blue border
+				light: 'rgba(134, 151, 196, 0.3)',
+				dark: 'rgba(112, 145, 196, 0.3)',
 			},
 		},
 		preview: {
@@ -519,21 +467,132 @@ export const themes: ThemeColors[] = [
 			cardLight: '#FFFFFF',
 			cardDark: '#2D2D31',
 			badgeBg: {
-				light: '97, 137, 47', // Fresh green
-				dark: '134, 194, 50', // Bright green
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
 			},
 			badgeText: {
-				light: '63, 98, 18', // Dark green for contrast in light mode
-				dark: '236, 252, 203', // Light green for contrast in dark mode
+				light: 'rgb(134, 194, 50)',
+				dark: 'rgb(97, 137, 47)',
 			},
 			badgeBorder: {
-				light: '77, 124, 15', // Medium green border
-				dark: '101, 163, 13', // Dark green border
+				light: 'rgba(134, 194, 50, 0.3)',
+				dark: 'rgba(97, 137, 47, 0.3)',
 			},
 		},
 		preview: {
 			primary: '#61892F',
 			secondary: '#86C232',
+		},
+	},
+	{
+		name: 'Tech Future',
+		colors: {
+			background: '#ffffff',
+			foreground: '#171717',
+			primaryLight: '44, 53, 49', // 2C3531
+			primaryDark: '17, 100, 102', // 116466
+			accentLight: '217, 176, 140', // D9B08C
+			accentDark: '255, 203, 154', // FFCB9A
+			gradientStart: '#2C3531',
+			gradientEnd: '#116466',
+			surfaceLight: '#F0FAF9',
+			surfaceDark: '#161B19',
+			sectionLight: '#F0FAF9', // Tech mint base
+			sectionLightAlt: '#F5FCFB', // Lighter tech
+			sectionDark: '#111614', // Deep future
+			sectionDarkAlt: '#151A18', // Slightly lighter future
+			cardLight: '#FFFFFF',
+			cardDark: '#2A2F2D',
+			badgeBg: {
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
+			},
+			badgeText: {
+				light: 'rgb(17, 100, 102)',
+				dark: 'rgb(217, 176, 140)',
+			},
+			badgeBorder: {
+				light: 'rgba(17, 100, 102, 0.3)',
+				dark: 'rgba(217, 176, 140, 0.3)',
+			},
+		},
+		preview: {
+			primary: '#2C3531',
+			secondary: '#116466',
+		},
+	},
+	{
+		name: 'Red Lively',
+		colors: {
+			background: '#E3E2DF', // Light gray background
+			foreground: '#171717', // Dark text color
+			primaryLight: '93, 1, 30', // 5D001E - Dark red
+			primaryDark: '154, 23, 80', // 9A1750 - Deep pink
+			accentLight: '227, 63, 76', // E33F4C - Bright red
+			accentDark: '238, 76, 124', // EE4C7C - Pink
+			gradientStart: '#5D001E', // Dark red gradient start
+			gradientEnd: '#9A1750', // Deep pink gradient end
+			surfaceLight: '#E3E2DF', // Light gray surface
+			surfaceDark: '#1F0A0E', // Very dark red surface
+			sectionLight: '#E3E2DF', // Light gray base
+			sectionLightAlt: '#EBEAE8', // Lighter gray
+			sectionDark: '#1A080C', // Deep red
+			sectionDarkAlt: '#1F0A0E', // Slightly lighter red
+			cardLight: '#FFFFFF', // White cards
+			cardDark: '#351219', // Dark red cards
+			badgeBg: {
+				light: 'rgba(0, 0, 0, 0.4)',
+				dark: 'rgba(0, 0, 0, 0.5)',
+			},
+			badgeText: {
+				light: 'rgb(227, 63, 76)', // Bright red text
+				dark: 'rgb(238, 76, 124)', // Pink text
+			},
+			badgeBorder: {
+				light: 'rgba(227, 63, 76, 0.3)',
+				dark: 'rgba(238, 76, 124, 0.3)',
+			},
+		},
+		preview: {
+			primary: '#5D001E', // Dark red
+			secondary: '#9A1750', // Deep pink
+		},
+	},
+	{
+		name: 'Monochrome',
+		colors: {
+			background: '#ffffff',
+			foreground: '#171717',
+			primaryLight: '26, 26, 26', // #1A1A1A - Near black
+			primaryDark: '0, 0, 0', // #000000 - Pure black
+			accentLight: '128, 128, 128', // #808080 - Mid gray
+			accentDark: '64, 64, 64', // #404040 - Darker gray
+			gradientStart: '#1A1A1A',
+			gradientEnd: '#404040',
+			surfaceLight: '#F8F8F8',
+			surfaceDark: '#121212',
+			sectionLight: '#F5F5F5', // Light gray base
+			sectionLightAlt: '#FAFAFA', // Lighter gray
+			sectionDark: '#141414', // Deep black
+			sectionDarkAlt: '#1A1A1A', // Slightly lighter black
+			cardLight: '#FFFFFF',
+			cardDark: '#1D1D1D',
+			badgeBg: {
+				light: 'rgba(0, 0, 0, 0.05)',
+				dark: 'rgba(255, 255, 255, 0.1)',
+			},
+			badgeText: {
+				light: 'rgb(64, 64, 64)', // Dark gray for light mode
+				dark: 'rgb(229, 229, 229)', // Light gray for dark mode
+			},
+			badgeBorder: {
+				light: 'rgba(0, 0, 0, 0.1)',
+				dark: 'rgba(255, 255, 255, 0.2)',
+			},
+		},
+		preview: {
+			primary: '#1A1A1A',
+			secondary: '#404040',
 		},
 	},
 ]

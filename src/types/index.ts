@@ -28,7 +28,8 @@ export interface Experience {
 	company: string
 	position: string
 	period: string
-	description: string
+	projects: string[]
+	technologies: string[]
 }
 
 export interface Skill {

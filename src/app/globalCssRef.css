@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+	--primary-light: 74, 222, 128;
+	--primary-dark: 22, 163, 74;
+	--accent-light: 34, 211, 238;
+	--accent-dark: 8, 145, 178;
+	--gradient-start: #4ade80;
+	--gradient-end: #22d3ee;
+	--surface-light: #ecfdf5;
+	--surface-dark: #0f1a1a;
+	--section-light: #f0fdfa;
+	--section-light-alt: #f7fdfb;
+	--section-dark: #0b1221;
+	--section-dark-alt: #0f1729;
+
+	/* --badge-bg-light: 74, 222, 128;
+	--badge-bg-dark: 22, 163, 74;
+	--badge-text-light: rgb(74, 222, 128);
+	--badge-text-dark: rgb(22, 163, 74);
+	--badge-border-light: rgba(74, 222, 128, 0.2);
+	--badge-border-dark: rgba(22, 163, 74, 0.2); */
+
+	--badge-bg-light: rgba(74, 222, 128, 0.1);
+	--badge-bg-dark: rgba(22, 163, 74, 0.1);
+	--badge-text-light: 74, 222, 128;
+	--badge-text-dark: 22, 163, 74;
+	--badge-border-light: 74, 222, 128;
+	--badge-border-dark: 22, 163, 74;
+
+	--highlight-text-light: #171717; /* Dark color for light mode */
+	--highlight-text-dark: #ecfdf5; /* Light color for dark mode */
+
+	/* Default to light mode */
+	--highlight-text: var(--highlight-text-light);
+
+	--highlight-text-secondary: #4a5568;
+
+	/* New background variables with alpha channel */
+	--nav-bg-light: rgba(240, 253, 250, 0); /* Starting transparent */
+	--nav-bg-dark: rgba(11, 18, 33, 0); /* Starting transparent */
+	--nav-bg-light-scrolled: rgba(240, 253, 250, 0.8); /* Scrolled state */
+	--nav-bg-dark-scrolled: rgba(11, 18, 33, 0.8); /* Scrolled state */
+
+	/* Mobile menu backgrounds */
+	--nav-mobile-light: rgba(240, 253, 250, 0.95);
+	--nav-mobile-dark: rgba(11, 18, 33, 0.95);
+}
+
+html {
+	transition: color-scheme 0.5s ease;
+}
+
+html.dark {
+	color-scheme: dark;
+	--background: var(--surface-dark);
+	--foreground: #f1f5f9;
+	--section-light: var(--section-dark);
+	--section-light-alt: var(--section-dark-alt);
+	/* Switch to dark mode highlight */
+	--highlight-text: var(--highlight-text-dark);
+	--highlight-text-secondary: #e2e8f0;
+
+	--nav-bg: var(--nav-bg-dark);
+	--nav-bg-scrolled: var(--nav-bg-dark-scrolled);
+	--nav-mobile: var(--nav-mobile-dark);
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: 'Inter', 'SF Pro Display', Arial, sans-serif;
+	transition: color 0.5s ease-in-out, background-color 0.5s ease;
+}
+
+/* Custom gradient text */
+.gradient-text {
+	@apply bg-clip-text text-transparent;
+	background-image: linear-gradient(
+		135deg,
+		var(--gradient-start),
+		var(--gradient-end)
+	);
+}
+
+/* Custom gradient background */
+.gradient-bg {
+	background-image: linear-gradient(
+		135deg,
+		var(--gradient-start),
+		var(--gradient-end)
+	);
+}
+
+/*Custom text*/
+.highlight-text {
+	color: var(--highlight-text);
+	transition: color 0.2s ease;
+	opacity: 0.9;
+}
+
+.highlight-text-75 {
+	color: var(--highlight-text);
+	opacity: 0.75;
+}
+
+.highlight-text-50 {
+	color: var(--highlight-text);
+	opacity: 0.5;
+}
+
+.highlight-text-25 {
+	color: var(--highlight-text);
+	opacity: 0.25;
+}
+
+/* Add secondary highlight text class */
+.highlight-text-secondary {
+	color: var(--highlight-text-secondary);
+	transition: color 0.2s ease;
+	opacity: 0.6;
+}

@@ -7,7 +7,7 @@ import { Section } from '../Layout/Section'
 
 export const About: FC = () => {
 	return (
-		<Section className='py-20 relative'>
+		<Section id='about' className='py-20 relative'>
 			{/* Gradient overlay */}
 			<div className='absolute inset-0 bg-gradient-to-br from-[rgb(var(--primary-light))/5] to-transparent' />
 
