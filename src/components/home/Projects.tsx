@@ -76,7 +76,7 @@ export const Projects: FC = () => {
                                 bg-[var(--card-light)] dark:bg-[var(--card-dark)]
                                 text-gray-900 dark:text-white 
                                 focus:ring-2 focus:ring-[rgb(var(--primary-light))/30
-                                outline-none w-64
+                                outline-none w-56
                                 transition-all duration-300'
 							/>
 							{searchTerm && (
