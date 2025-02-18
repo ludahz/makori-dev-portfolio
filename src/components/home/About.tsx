@@ -35,22 +35,16 @@ export const About: FC = () => {
 						</p>
 						<p className='animate-fade-in delay-200'>
 							I&apos;m always eager to learn new technologies and best practices
-							to create better web experiences. When I&apos;m not coding, I
-							enjoy contributing to open-source projects and staying up-to-date
-							with the latest web development trends.
+							to create better web experiences.
 						</p>
 					</div>
-					<motion.div
+					{/* <motion.div
 						initial={{ opacity: 0, scale: 0.8 }}
 						animate={{ opacity: 1, scale: 1 }}
 						className='relative h-96 w-full rounded-lg overflow-hidden'
 					>
 						<div className='absolute inset-0 bg-[var(--card-dark)] opacity-80' />
-						{/* <img
-							src='/images/manta-reollo.png'
-							alt='Lawrence Makori'
-							className='object-cover object-center w-full h-full rounded-lg'
-						/> */}
+						
 						<Image
 							src='/images/manta-reollo.png'
 							alt='Lawrence Makori'
@@ -58,6 +52,74 @@ export const About: FC = () => {
 							className='object-cover object-center rounded-lg'
 							priority
 						/>
+					</motion.div> */}
+
+					<motion.div
+						initial={{ opacity: 0, scale: 0.8 }}
+						animate={{ opacity: 1, scale: 1 }}
+						className='relative h-96 w-full rounded-lg overflow-hidden bg-[var(--card-dark)] p-4'
+					>
+						{/* Editor Header */}
+						<div className='flex items-center space-x-2 mb-4'>
+							<div className='w-3 h-3 rounded-full bg-red-500' />
+							<div className='w-3 h-3 rounded-full bg-yellow-500' />
+							<div className='w-3 h-3 rounded-full bg-green-500' />
+						</div>
+
+						{/* Code Content */}
+						<div className='font-mono text-sm space-y-2 text-gray-300'>
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 0.2 }}
+							>
+								<span className='text-[rgb(var(--primary-light))]'>const</span>{' '}
+								developer = {'{'}
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 0.4 }}
+								className='pl-4'
+							>
+								name:{' '}
+								<span className='text-green-400'>
+									&apos;Lawrence Makori&apos;
+								</span>
+								,
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 0.6 }}
+								className='pl-4'
+							>
+								skills: [
+								<span className='text-green-400'>
+									&apos;Full Stack Development&apos;
+								</span>
+								,<span className='text-green-400'>&apos;Nodejs&apos;</span>
+								],
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 0.8 }}
+								className='pl-4'
+							>
+								passion:{' '}
+								<span className='text-green-400'>
+									&apos;Creating Amazing Web Experiences&apos;
+								</span>
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, x: -20 }}
+								animate={{ opacity: 1, x: 0 }}
+								transition={{ delay: 1.0 }}
+							>
+								{'}'}
+							</motion.div>
+						</div>
 					</motion.div>
 				</motion.div>
 			</div>

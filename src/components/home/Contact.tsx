@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { Section } from '../Layout/Section'
 import { SectionTitle } from '../shared/SectionTitle'
-import { Mail, MapPin, Phone, Loader2 } from 'lucide-react'
+import { Mail, MapPin, Phone, Loader2, Contact2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useForm } from '@tanstack/react-form'
 import { z } from 'zod'
@@ -35,6 +35,20 @@ function FieldInfo({ field }: { field: FieldApi<any, any, undefined, any> }) {
 		</>
 	)
 }
+
+const inputClassName = `mt-1 block w-full rounded-md 
+  border-[rgb(var(--primary-light),0.2)]
+  bg-white/50 dark:bg-[var(--card-dark)]
+  text-gray-900 dark:text-white
+  px-4 py-2
+  outline-none
+  focus:outline focus:outline-2 focus:outline-[rgb(var(--primary-dark))]
+  hover:border-[rgb(var(--primary-light),0.3)]
+  placeholder-gray-400
+  backdrop-blur-sm
+  shadow-sm
+  transition-all duration-200
+  ease-in-out`
 
 const Contact = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
@@ -89,7 +103,7 @@ const Contact = () => {
 	console.log('This is is submitting', isSubmitting)
 
 	return (
-		<Section isDark>
+		<Section>
 			<Toaster position='bottom-right' />
 			<div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
 				<SectionTitle>Get In Touch</SectionTitle>
@@ -112,7 +126,7 @@ const Contact = () => {
                                   group-hover:bg-[rgb(var(--primary-light),0.2)]
                                   transition-colors duration-300'
 										>
-											<Mail
+											<Contact2
 												className='text-[rgb(var(--primary-light))]'
 												size={20}
 											/>
@@ -166,10 +180,11 @@ const Contact = () => {
 
 							{/* Form Section */}
 							<div
-								className='bg-[rgb(var(--primary-light),0.03)] dark:bg-[var(--section-dark)]
-                            rounded-lg p-6 border border-[rgb(var(--primary-light),0.1)]
-                            group-hover:border-[rgb(var(--primary-light),0.2)]
-                            transition-all duration-300'
+								className='bg-[rgb(var(--primary-light),0.03)] dark:bg-[var(--section-dark)]rounded-lg p-8 border border-[rgb(var(--primary-light),0.1)]
+    group-hover:border-[rgb(var(--primary-light),0.2)]
+    backdrop-filter backdrop-blur-lg
+    shadow-lg
+    transition-all duration-300'
 							>
 								<form
 									onSubmit={(e) => {
@@ -192,7 +207,7 @@ const Contact = () => {
 											<div>
 												<label
 													htmlFor={field.name}
-													className='block text-sm font-medium text-gray-700 dark:text-gray-300'
+													className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2'
 												>
 													Name
 												</label>
@@ -202,15 +217,8 @@ const Contact = () => {
 													value={field.state.value}
 													onBlur={field.handleBlur}
 													onChange={(e) => field.handleChange(e.target.value)}
-													className='mt-1 block w-full rounded-md 
-                                   border-[rgb(var(--primary-light),0.2)]
-                                   bg-white dark:bg-[var(--card-dark)]
-                                   text-gray-900 dark:text-white
-                                   focus:border-[rgb(var(--primary-light))]
-                                   focus:ring-[rgb(var(--primary-light))]
-                                   dark:focus:border-[rgb(var(--primary-light))]
-                                   dark:focus:ring-[rgb(var(--primary-light))]
-                                   shadow-sm transition-colors'
+													placeholder='Enter your name'
+													className='form-input'
 												/>
 												<FieldInfo field={field} />
 											</div>
@@ -228,7 +236,7 @@ const Contact = () => {
 											<div>
 												<label
 													htmlFor={field.name}
-													className='block text-sm font-medium text-gray-700 dark:text-gray-300'
+													className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2'
 												>
 													Email
 												</label>
@@ -239,15 +247,8 @@ const Contact = () => {
 													value={field.state.value}
 													onBlur={field.handleBlur}
 													onChange={(e) => field.handleChange(e.target.value)}
-													className='mt-1 block w-full rounded-md 
-                                   border-[rgb(var(--primary-light),0.2)]
-                                   bg-white dark:bg-[var(--card-dark)]
-                                   text-gray-900 dark:text-white
-                                   focus:border-[rgb(var(--primary-light))]
-                                   focus:ring-[rgb(var(--primary-light))]
-                                   dark:focus:border-[rgb(var(--primary-light))]
-                                   dark:focus:ring-[rgb(var(--primary-light))]
-                                   shadow-sm transition-colors'
+													placeholder='Enter your email'
+													className='form-input'
 												/>
 												<FieldInfo field={field} />
 											</div>
@@ -267,7 +268,7 @@ const Contact = () => {
 											<div>
 												<label
 													htmlFor={field.name}
-													className='block text-sm font-medium text-gray-700 dark:text-gray-300'
+													className='block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2'
 												>
 													Message
 												</label>
@@ -278,38 +279,30 @@ const Contact = () => {
 													onBlur={field.handleBlur}
 													onChange={(e) => field.handleChange(e.target.value)}
 													rows={4}
-													className='mt-1 block w-full rounded-md 
-                                   border-[rgb(var(--primary-light),0.2)]
-                                   bg-white dark:bg-[var(--card-dark)]
-                                   text-gray-900 dark:text-white
-                                   focus:border-[rgb(var(--primary-light))]
-                                   focus:ring-[rgb(var(--primary-light))]
-                                   dark:focus:border-[rgb(var(--primary-light))]
-                                   dark:focus:ring-[rgb(var(--primary-light))]
-                                   shadow-sm transition-colors'
+													placeholder='Write your message here...'
+													className='form-input form-input-textarea'
 												/>
 												<FieldInfo field={field} />
 											</div>
 										)}
 									</form.Field>
 
-									<form.Subscribe
+									{/* <form.Subscribe
 										selector={(state) => [state.canSubmit, state.isSubmitting]}
 									>
 										{([canSubmit, isSubmitting]) => (
 											<button
 												type='submit'
 												disabled={!canSubmit || isSubmitting}
-												className='w-full px-4 py-2 rounded-md
-                                 bg-[rgb(var(--primary-light))]
-                                 hover:bg-[rgb(var(--primary-dark))]
-                                 text-white font-medium
-                                 focus:outline-none focus:ring-2
-                                 focus:ring-[rgb(var(--primary-light))]
-                                 focus:ring-offset-2
-                                 disabled:opacity-50 disabled:cursor-not-allowed
-                                 shadow-sm transition-colors duration-300
-                                 flex items-center justify-center'
+												className='w-full px-6 py-3 rounded-md
+            bg-[rgb(var(--primary-dark))]
+            hover:bg-[rgb(var(--primary-light))]
+            text-white font-medium
+            focus:outline-2 focus:outline-offset-2 focus:outline-[rgb(var(--primary-light))]
+            disabled:opacity-50 disabled:cursor-not-allowed
+            shadow-md hover:shadow-lg
+            transition-all duration-300
+            flex items-center justify-center'
 											>
 												{isSubmitting ? (
 													<>
@@ -319,6 +312,33 @@ const Contact = () => {
 												) : (
 													'Send Message'
 												)}
+											</button>
+										)}
+									</form.Subscribe> */}
+
+									<form.Subscribe
+										selector={(state) => [state.canSubmit, state.isSubmitting]}
+									>
+										{([canSubmit, isSubmitting]) => (
+											<button
+												type='submit'
+												disabled={!canSubmit || isSubmitting}
+												className='theme-button'
+											>
+												{isSubmitting ? (
+													<>
+														<Loader2
+															className='animate-spin text-current'
+															size={18}
+														/>
+														<span className='relative z-10'>Sending...</span>
+													</>
+												) : (
+													<span className='relative z-10'>Send Message</span>
+												)}
+
+												{/* Contrast overlay for light themes */}
+												{/* <div className='absolute inset-0 bg-black/10 dark:bg-white/10' /> */}
 											</button>
 										)}
 									</form.Subscribe>

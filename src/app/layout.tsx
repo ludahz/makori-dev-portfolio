@@ -47,6 +47,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import './css/navigation.css'
 import './css/social-link.css'
+import './css/contact.css'
 
 import { ThemeProvider } from '@/components/context/ThemeContext'
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher'

@@ -8,8 +8,11 @@ export const projects: Project[] = [
 		title: 'Reollo Travel B2B Platform',
 		description:
 			'Built a comprehensive B2B travel booking platform with React and Node.js, featuring TourPlan API integration for real-time rates and bookings.',
-		images: [{ url: '/images/reollo-b2b.png', alt: 'reollo-travel' }],
-		liveUrl: 'https://reollo-travel.com',
+		images: [
+			{ url: '/images/reollo-1.png', alt: 'reollo-travel' },
+			{ url: '/images/reollo-2.png', alt: 'reollo-travel' },
+		],
+		liveUrl: 'https://webconnect.reollo.travel/',
 		githubUrl: 'https://github.com/reollo-travel/reollo-b2b-2023',
 		tech: ['React', 'Node.js', 'API Integration', 'TypeScript'],
 		type: 'Professional',

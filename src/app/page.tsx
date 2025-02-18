@@ -6,6 +6,7 @@ import Hero from '@/components/home/Hero'
 import { Projects } from '@/components/home/Projects'
 
 import { Skills } from '@/components/home/Skills'
+import { Footer } from '@/components/Layout/Footer'
 import { Navbar } from '@/components/Layout/Navbar'
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
 			<Projects />
 			<Experience />
 			<Contact />
+			<Footer />
 		</>
 	)
 }

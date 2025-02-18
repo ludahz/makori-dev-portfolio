@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.form-input {
+		@apply mt-1 block w-full rounded-md 
+      border border-[rgb(var(--primary-light),0.2)]
+      bg-white/50 dark:bg-[var(--card-dark)]
+      text-gray-900 dark:text-white
+      px-4 py-2
+      outline-none
+      placeholder-gray-400
+      backdrop-blur-sm
+      shadow-sm
+      transition-all duration-200
+      ease-in-out;
+	}
+
+	.form-input:hover {
+		@apply border-[rgb(var(--primary-light),0.3)];
+	}
+
+	.form-input:focus {
+		@apply outline outline-2 outline-[rgb(var(--primary-dark))];
+	}
+
+	/* Optional: Add a special class for textarea */
+	.form-input-textarea {
+		@apply resize-none;
+	}
+
+	.theme-button {
+		@apply w-full px-6 py-3 rounded-md
+          bg-[rgb(var(--primary-dark))]
+          hover:bg-[rgb(var(--primary-light))]
+          dark:bg-[rgb(var(--primary-light))]
+          dark:hover:bg-[rgb(var(--primary-dark))]
+          text-[var(--surface-light)]
+          dark:text-[var(--surface-dark)] 
+          hover:text-[var(--surface-dark)]
+          dark:hover:text-[var(--surface-light)]
+          font-medium relative
+          backdrop-blur-sm;
+	}
+
+	.theme-button::after {
+		@apply content-[''] absolute inset-0 bg-black/10 dark:bg-white/10;
+	}
+
+	.theme-button:disabled {
+		@apply opacity-50 cursor-not-allowed;
+	}
+
+	/* .button {
+		@apply;
+	} */
+}

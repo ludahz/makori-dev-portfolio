@@ -109,7 +109,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
 							>
 								{project.type}
 							</span> */}
-							<span className='badge badge-outline'>{project.type}</span>
+							<span className='badge badge-solid'>{project.type}</span>
 						</span>
 					</div>
 				</div>
@@ -143,7 +143,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
 										{tech}
 									</span> */}
 
-									<span className='badge '>{tech}</span>
+									<span className='badge'>{tech}</span>
 								</span>
 							))}
 						</div>

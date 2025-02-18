@@ -69,7 +69,7 @@ export function ImageModal({ images, isOpen, onClose }: ImageModalProps) {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4'
+			className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 '
 			onClick={onClose}
 		>
 			<div
@@ -85,7 +85,7 @@ export function ImageModal({ images, isOpen, onClose }: ImageModalProps) {
 				</button>
 
 				{/* Main image */}
-				<div className='relative w-full h-[80vh] max-h-[800px] bg-[var(--card-light)] dark:bg-[var(--card-dark)]  rounded-lg overflow-hidden'>
+				<div className='relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] max-h-[800px] bg-[var(--card-light)] dark:bg-[var(--card-dark)]  rounded-lg overflow-hidden'>
 					<Image
 						src={images[currentImageIndex].url}
 						alt={images[currentImageIndex].alt}
