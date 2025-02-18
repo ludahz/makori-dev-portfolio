@@ -36,20 +36,6 @@ function FieldInfo({ field }: { field: FieldApi<any, any, undefined, any> }) {
 	)
 }
 
-const inputClassName = `mt-1 block w-full rounded-md 
-  border-[rgb(var(--primary-light),0.2)]
-  bg-white/50 dark:bg-[var(--card-dark)]
-  text-gray-900 dark:text-white
-  px-4 py-2
-  outline-none
-  focus:outline focus:outline-2 focus:outline-[rgb(var(--primary-dark))]
-  hover:border-[rgb(var(--primary-light),0.3)]
-  placeholder-gray-400
-  backdrop-blur-sm
-  shadow-sm
-  transition-all duration-200
-  ease-in-out`
-
 const Contact = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
 

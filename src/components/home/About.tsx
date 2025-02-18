@@ -4,7 +4,6 @@ import { FC } from 'react'
 import { motion } from 'framer-motion'
 import { SectionTitle } from '../shared/SectionTitle'
 import { Section } from '../Layout/Section'
-import Image from 'next/image'
 
 export const About: FC = () => {
 	return (
