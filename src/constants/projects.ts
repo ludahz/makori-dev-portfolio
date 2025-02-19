@@ -23,7 +23,7 @@ export const projects: Project[] = [
 		description:
 			'Promotional website for Reollo Travel featuring Manta Air direct flights from Bengaluru to Maldives. Built with Next.js and TypeScript, featuring an inquiry system that connects travelers with the reservation team. Showcases vacation packages including family packages, honeymoon specials, and adventure trips.',
 		images: [{ url: '/images/manta-reollo.png', alt: 'manta-reollo' }],
-		githubUrl: 'https://github.com/reollo-travel/strapi-cms',
+		githubUrl: 'https://github.com/ludahz/next-manta-reollo-package',
 		liveUrl: '',
 		tech: [
 			'Next.js',
